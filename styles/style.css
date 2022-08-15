@@ -1,3 +1,40 @@
 body {
   background-color: gray;
 }
+
+.container {
+
+}
+
+
+.row {
+
+  height: 50vh;
+
+
+}
+
+.profile-img  {
+
+}
+.content {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.img {
+  
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  margin-top: -350px;
+  border: solid;
+  border-color: white;
+  border-width: 6px;
+
+}
+
+.bg-white {
+  background-color: white;
+}
