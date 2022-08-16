@@ -1,0 +1,85 @@
+---
+subject: Welcome Email Template
+---
+
+<spacer size="30"></spacer>
+
+<wrapper>
+    <container>
+        <row>
+            <columns>
+                <spacer size="30"></spacer>
+				<center>
+					<img width="64" height="64" src="http://dev.adipurdila.com/emails/logo.jpg" alt="Adi Purdila Logo">
+				</center>                
+            </columns>
+        </row>
+
+        <row>
+            <columns>
+                <center>
+                    <menu class="show-for-large">
+                        <item href="#">Portfolio</item>
+                        <item href="#">Courses &amp; Tutorials</item>
+                        <item href="#">Blog</item>
+                        <item href="#">About</item>
+                    </menu>
+                </center>
+                
+                <spacer size="30" class="show-for-large"></spacer>
+
+                <wrapper class="main-content">
+                    <h1 class="text-center">Welcome to my website.</h1>
+                    <p class="text-center">Here are a few interesting things you might want to check out:</p>				
+                    
+                    <spacer size="60"></spacer>
+
+                    <row>
+                        <columns small="12" large="6" class="custom-list">
+                            <h4>WordPress Themes</h4>
+                            <p>Check out my growing collection of WordPress themes.</p>
+                            <p><a href="#">See WordPress themes</a></p>
+                        </columns>
+
+                        <columns small="12" large="6" class="custom-list">
+                            <h4>Courses</h4>
+                            <p>I do all sorts of web design courses over at Tuts+.</p>
+                            <p><a href="#">Check out the courses</a></p>
+                        </columns>
+                    </row>
+
+                    <row>
+                        <columns small="12" large="6" class="custom-list">
+                            <h4>Freebies</h4>
+                            <p>In my spare time I design various bits and bobs that I give away for free.</p>
+                            <p><a href="#">Download freebies</a></p>
+                        </columns>
+
+                        <columns small="12" large="6" class="custom-list">
+                            <h4>Blog posts</h4>
+                            <p>I write about web design and web development.</p>
+                            <p><a href="#">Read the blog</a></p>
+                        </columns>
+                    </row>
+                </wrapper>
+            </columns>
+        </row>
+
+		<row>
+			<columns>
+				<center>
+					<menu>
+						<item href="#"><img width="32" height="32" src="http://dev.adipurdila.com/emails/icon-facebook.jpg" alt="Facebook"></item>
+						<item href="#"><img width="32" height="32" src="http://dev.adipurdila.com/emails/icon-twitter.jpg" alt="Twitter"></item>
+						<item href="#"><img width="32" height="32" src="http://dev.adipurdila.com/emails/icon-googleplus.jpg" alt="Google+"></item>
+					</menu>
+				</center>
+
+				<spacer size="30"></spacer>
+				<p class="text-center"><small>Copyright 2017 &copy; Adi Purdila. All rights reserved.</small></p>
+				<p class="text-center"><small>Str. Pacii 24A, Suceava, Romania.</small></p>
+				<p class="text-center"><small><a href="#">www.adipurdila.com</a></small></p>
+			</columns>
+		</row>
+    </container>
+</wrapper>
