@@ -85,3 +85,19 @@ ul{
 .white{
   color: white;
 }
+
+.btn-group {
+  padding: 30px;
+}
+
+.btn {
+  background-color: rgb(11, 57, 157);
+  padding: 12px;
+  border-radius: 2px;
+  color: white;
+}
+
+.btn a {
+  color: white !important;
+  text-decoration: none;
+}
