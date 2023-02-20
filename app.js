@@ -1,14 +1,17 @@
 const express = require('express');
+const mysql = require('mysql');
 const app = express();
 const morgan = require('morgan');
-
+app.use(express.static('public'));
 const todosRoutes = require('./api/routes/todos');
 const tasksRoutes = require('./api/routes/tasks');
+
 
 app.use(morgan('dev'));
 
 app.use('/todos', todosRoutes);
 app.use('/tasks', tasksRoutes);
+
 
 app.use((req, res, next) => {
      const error = new Error('Error(404) Page Not Found');

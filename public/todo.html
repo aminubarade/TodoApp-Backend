@@ -19,22 +19,23 @@
           <li>School todos</li>
         </ul>
       </div>
-
     </div>
     <div class="col box-lightblue">
       <div class="col-content">
         <h1>Todo</h1>
         <h2 class="white">Work Stuff</h2>
         <p><strong>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eum placeat eveniet, laborum rerum expedita unde aliquam quo tenetur dolore? Provident, neque voluptatum iste quidem magni vel nam cupiditate laudantium.</strong></p>
-        <form action="" id="todoForm">
-          <input id="inputValue" type="text" autocomplete="off">
-          <button>Add Task</button>
+        <form action="#" method="POST" id="todoForm">
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+          <input id="inputValue" type="text" autocomplete="off" name="todo">
+          <input type="submit" value="Add Task" id="">
         </form>
         <h3>Tasks</h3>
-        <ul id="todoList">
+        <ul id="todoList" class="todoList">
         
         </ul>
       </div>
+      
       <script src="scripts/script.js"></script>
     </div>
   </div>

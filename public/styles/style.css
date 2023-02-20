@@ -35,8 +35,6 @@ ul{
 }
 
 
-
-
 .container{
   
 }
@@ -95,9 +93,18 @@ ul{
   padding: 12px;
   border-radius: 2px;
   color: white;
+  margin-right: 2px;
 }
 
 .btn a {
   color: white !important;
   text-decoration: none;
+}
+
+.todoList{
+  padding: 30px;
+  font-size: 20px; 
+  font-weight: 400; 
+  color: #ffffff; 
+  text-align: justify;
 }

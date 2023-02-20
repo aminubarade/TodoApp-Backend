@@ -5,3 +5,4 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer(app);
 server.listen(port);
+console.log("Server running at 127.0.0.1:3000");
