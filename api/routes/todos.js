@@ -6,8 +6,8 @@ const controllers = require("../../controllers/TodoController");
 router.route("/").get(controllers.getAllTodos);
 router.route("/").post(controllers.createTodo);
 router.route("/:id").get(controllers.getTodo);
-router.route("/:id").get(controllers.updateTodo);
-router.route("/:id").get(controllers.deleteTodo);
+router.route("/:id").put(controllers.updateTodo);
+router.route("/:id").delete(controllers.deleteTodo);
 
 
 
