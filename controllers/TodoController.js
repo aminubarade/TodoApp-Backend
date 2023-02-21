@@ -7,10 +7,9 @@ exports.getAllTodos = (req, res, next) => {
  };
 
  exports.createTodo = (req, res, next) => {
-  const values = [req.body.todo, "pending"];
+  const todo = req.body.todo;
   conn.query(
-    "INSERT INTO todoList (todo) VALUES(?)",
-    [values],
+    `INSERT INTO todolist (todo) VALUES ("${todo}")`,
     function (err, data, fields) {
       res.status(201).json({
         status: "success",
@@ -36,7 +35,7 @@ exports.getAllTodos = (req, res, next) => {
 
  exports.updateTodo = (req, res, next) => {
   conn.query(
-    "UPDATE todolist SET status='completed' WHERE id=?",
+    "UPDATE todolist SET description='completed' WHERE id=?",
     [req.params.id],
     function (err, data, fields) {
       res.status(201).json({
@@ -58,5 +57,5 @@ exports.getAllTodos = (req, res, next) => {
       });
     }
   );
- }
+ };
 
