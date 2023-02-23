@@ -1,4 +1,5 @@
 const conn = require("../config/db");
+const Todo = require("./../models/Todo");
 
 exports.getAllTodos = (req, res, next) => {
   conn.query("SELECT * FROM todolist", function (err, data, fields) {
