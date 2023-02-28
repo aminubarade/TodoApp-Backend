@@ -1,62 +1,100 @@
-const conn = require("../config/db");
+const sequelize = require("../config/db");
+//const Todo = require("./../models/Todo");
+const Task = require("./../models/Task");
+const { json } = require("body-parser");
+
+//Task.hasMany(Todo);
 
 exports.getAllTasks = (req, res, next) => {
-  conn.query("SELECT * FROM tasklist", function (err, data, fields) {
-    res.status(200).json(data);
-  });
+  sequelize
+  .sync()
+  .then(async () => {
+    const tasks = await Task.findAll();
+    res.status(200).json(tasks);
+  })
+  .catch(()=> {
+    res.status(404).json({
+      status: "Failed",
+      message: "Page not found"
+    })
+  })
  };
 
+ //create Task Method
  exports.createTask = (req, res, next) => {
-  const values = [req.body.todo, "pending"];
-  conn.query(
-    "INSERT INTO tasksTable (todo) VALUES(?)",
-    [values],
-    function (err, data, fields) {
-      res.status(201).json({
-        status: "success",
-        message: "task created!",
-      });
-    }
-  );
+  sequelize
+  .sync()
+  .then(()=> {
+    Task.create({
+      id: req.body.id,
+      task: req.body.task,
+      description: req.body.description,
+      status: req.body.status
+      
+  })
+  res.status(200).json({
+    status: "success",
+    message: "Task created"
+  })
+})
+.catch(()=>{
+    res.status(404).json({
+      status: "error",
+      message: "Task not created"
+    })
+  })
  };
 
+ //Get a single task method 
  exports.getTask = (req, res, next) => {
-  conn.query(
-    "SELECT * FROM tasksTable WHERE id = ?",
-    [req.params.id],
-    function (err, data, fields) {
-      res.status(200).json({
-        status: "success",
-        length: data?.length,
-        data: data,
-      });
-    }
-  );
+  sequelize
+  .sync()
+  .then(async () => {
+    const task = await Task.findAll(
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    );
+    res.status(200).json(task);
+  })
+  .catch(()=> {
+    res.status(404).json({
+      status: "Failed",
+      message: "Page not found"
+    })
+  })
  };
 
+ //Update task method
  exports.updateTask = (req, res, next) => {
-  conn.query(
-    "UPDATE tasksTable SET status='completed' WHERE id=?",
-    [req.params.id],
-    function (err, data, fields) {
-      res.status(201).json({
-        status: "success",
-        message: "task updated!",
-      });
-    }
-  );
+  
  };
 
+
+//Delete task method
  exports.deleteTask = (req, res, next) => {
-  conn.query(
-    "DELETE FROM tasksTable WHERE id=?",
-    [req.params.id],
-    function (err, fields) {
-      res.status(201).json({
-        status: "success",
-        message: "Task deleted!",
-      });
-    }
-  );
+  sequelize
+  .sync()
+  .then(async () => {
+    Task.destroy(
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    );
+    res.status(200).json({
+      status: "success",
+      message: "Task Deleted"
+    });
+  })
+  .catch(()=> {
+    res.status(404).json({
+      status: "Failed",
+      message: "Could not Delete"
+    })
+  })
  }
 
