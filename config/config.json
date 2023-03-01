@@ -5,7 +5,8 @@
     "database": "todoApp",
     "host": "localhost",
     "port": "8889",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging":true
   },
   "test": {
     "username": "root",

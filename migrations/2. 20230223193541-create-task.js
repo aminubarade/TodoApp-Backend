@@ -1,13 +1,12 @@
-'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Tasks', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        primaryKey: true
       },
       task: {
         type: Sequelize.STRING
@@ -17,6 +16,15 @@ module.exports = {
       },
       status: {
         type: Sequelize.STRING
+      },
+      //foreign key
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+           model: 'Users',
+           key: 'id'
+        },
       },
       createdAt: {
         allowNull: false,

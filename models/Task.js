@@ -20,7 +20,18 @@ const Task = sequelize.define("tasks",{
         type: Sequelize.INTEGER,
         allowNull: true,
       } 
-})
+});
+  Task.associate = (models) => {
+    Task.belongsTo(models.User,{
+      as: 'user',
+      foreignKey: 'userId'
+    });
+    
+    Task.hasMany(models.Todo,{
+      as: 'todos',
+      foreignKey: 'taskId'
+    });
+  };
 
 
 module.exports = Task;

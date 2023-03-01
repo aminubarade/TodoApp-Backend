@@ -3,7 +3,6 @@ const Todo = require("./../models/Todo");
 //const Task = require("./../models/Task");
 const { json } = require("body-parser");
 
-//Todo.belongsTo(Task);
 
 exports.getAllTodos = (req, res, next) => {
   sequelize
