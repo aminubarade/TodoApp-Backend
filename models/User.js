@@ -8,19 +8,38 @@ const User = sequelize.define("users",{
         allowNull: false,
         primaryKey: true,
       },
-      firstName: {
+      username: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      lastName: {
+      firstname: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      lastname: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
         allowNull: true,
+      },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: true,
       } 
-})
+});
+User.associate = (models) => {
+  User.hasMany(models.Task, {
+    as: 'tasks',
+    foreignKey: 'userId'
+  });
+  
+  User.hasMany(models.Todo, {
+    as: 'todos',
+    foreignKey: 'userId'
+  });
+}
 
 
 module.exports = User;

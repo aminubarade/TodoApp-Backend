@@ -10,7 +10,7 @@ Tools: <br>
 
 # Endpoints
 
-The following Endpoints are available on the Appp
+The following Endpoints are available on the App
 # Todo
 
 *GET:*

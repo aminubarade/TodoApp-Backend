@@ -18,5 +18,17 @@ const Todo = sequelize.define("todos",{
       } 
 });
 
+Todo.associate = (models) => {
+  Todo.belongsTo(models.Task,{
+    as: 'task',
+    foreignKey: 'taskId'
+  });
+
+  Todo.belongsTo(models.User,{
+    as: 'user',
+    foreignKey: 'userId'
+  });
+};
+
 
 module.exports = Todo;

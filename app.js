@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+const session = require('express-session');
 const morgan = require('morgan');
 app.use(express.static('public'));
 const bodyParser = require('body-parser');
@@ -9,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const todosRoutes = require('./api/routes/todos');
 const tasksRoutes = require('./api/routes/tasks');
 const usersRoutes = require('./api/routes/users');
+const authRoutes = require('./api/routes/auth');
 
 
 app.use(morgan('dev'));
@@ -16,6 +18,7 @@ app.use(morgan('dev'));
 app.use('/todos', todosRoutes);
 app.use('/tasks', tasksRoutes);
 app.use('/users', usersRoutes);
+app.use('/auth', authRoutes);
 
 
 app.use((req, res, next) => {
