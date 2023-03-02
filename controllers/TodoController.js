@@ -1,6 +1,5 @@
 const sequelize = require("../config/db");
 const Todo = require("./../models/Todo");
-//const Task = require("./../models/Task");
 const { json } = require("body-parser");
 
 
@@ -28,7 +27,9 @@ exports.getAllTodos = (req, res, next) => {
     Todo.create({
       id: req.body.id,
       todo: req.body.todo,
-      status: req.body.status
+      status: req.body.status,
+      userId: req.params.userId,
+      taskId: req.params.taskId
   })
   res.status(200).json({
     status: "success",

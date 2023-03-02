@@ -1,9 +1,6 @@
 const sequelize = require("../config/db");
-//const Todo = require("./../models/Todo");
 const Task = require("./../models/Task");
 const { json } = require("body-parser");
-
-
 
 exports.getAllTasks = (req, res, next) => {
   sequelize

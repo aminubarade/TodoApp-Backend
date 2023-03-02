@@ -8,13 +8,19 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      firstName: {
+      username: {
         type: Sequelize.STRING
       },
-      lastName: {
+      firstname: {
+        type: Sequelize.STRING
+      },
+      lastname: {
         type: Sequelize.STRING
       },
       email: {
+        type: Sequelize.STRING
+      },
+      password: {
         type: Sequelize.STRING
       },
       createdAt: {

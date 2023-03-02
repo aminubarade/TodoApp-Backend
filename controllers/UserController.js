@@ -1,11 +1,6 @@
 const sequelize = require("../config/db");
-//const Todo = require("./../models/Todo");
-//const Task = require("./../models/Task");
 const User = require("./../models/User");
 const { json } = require("body-parser");
-
-// User.hasMany(Todo);
-// User.hasMany(Task);
 
 exports.getAllUsers = (req, res, next) => {
   sequelize
@@ -29,9 +24,11 @@ exports.getAllUsers = (req, res, next) => {
   .then(()=> {
     User.create({
       id: req.body.id,
-      firstName: req.body.firstname,
-      lastName: req.body.lastname,
-      email: req.body.email
+      username: req.body.username,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: req.body.password
   })
   res.status(200).json({
     status: "success",
