@@ -11,6 +11,10 @@ const todosRoutes = require('./api/routes/todos');
 const tasksRoutes = require('./api/routes/tasks');
 const usersRoutes = require('./api/routes/users');
 const authRoutes = require('./api/routes/auth');
+var cors = require('cors')
+
+app.use(cors()) // Use this after the variable declaration
+
 
 
 app.use(morgan('dev'));

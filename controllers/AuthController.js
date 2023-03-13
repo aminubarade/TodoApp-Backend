@@ -18,14 +18,14 @@ sequelize
     )
     if(user.username === req.params.username || username.password === req.params.password){
       console.log('Logged in Successfully');
+      //redirect
     }
 })
     .catch(()=>{
-  console.log("page not found");
+      console.log("Unable to login");
     });
   
  };
-
 
  exports.register = (req, res, next) => {
   sequelize
@@ -39,8 +39,21 @@ sequelize
         }
       )
       if(req.params.username === user.username){
-        console.log('User Already Exist');
-      }})
+        console.log('User Already Exist: Redirect');
+      }}).then(()=> {
+        User.create({
+          id: req.body.id,
+          username: req.params.username,
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          email: req.body.email,
+          password: req.body.password
+      })
+      res.status(200).json({
+        status: "success",
+        message: "User Registered"
+      })
+    })
   .catch(()=>{
     console.log('Fill the forms');
   })

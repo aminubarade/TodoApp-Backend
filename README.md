@@ -1,6 +1,7 @@
 # TodoApp
 Todo app for coding beginners.
-This is the backend of the todo application.
+This is the backend of the todo application.<br>
+The frontend code of this application can be found <a href="https://github.com/aminubarade/todo-frontend">here</a>.
 
 Tools: <br>
   Environment - Node JS <br>
