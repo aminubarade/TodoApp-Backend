@@ -83,6 +83,8 @@ The following Endpoints are available on the App
  14. Update User
  15. Delete User
 
+# Installation
+
 # Upcomming Features and Chores
 
  1. User Authentication
