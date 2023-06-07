@@ -7,21 +7,28 @@ app.use(express.static('public'));
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const todosRoutes = require('./api/routes/todos');
-const tasksRoutes = require('./api/routes/tasks');
-const usersRoutes = require('./api/routes/users');
-const authRoutes = require('./api/routes/auth');
-const session = require('express-session')
+const todosRoutes = require('./api/routes/todosRoutes');
+const tasksRoutes = require('./api/routes/tasksRoutes');
+const usersRoutes = require('./api/routes/usersRoutes');
+const authRoutes = require('./api/routes/authRoutes');
 var cors = require('cors');
 
 
 app.use(cors()) // Use this after the variable declaration
 app.use(morgan('dev'));
-app.use(session())
+app.use(session({
+     secret: "thisismysecretdonttellanyone",
+     cookie: {
+          sameSite: "strict"
+     }
+}))
+
+app.use('/auth', authRoutes);
 app.use('/todos', todosRoutes);
 app.use('/tasks', tasksRoutes);
 app.use('/users', usersRoutes);
-app.use('/auth', authRoutes);
+
+
 app.use((req, res, next) => {
      const error = new Error('Error(404) Page Not Found');
      error.status = 404;
