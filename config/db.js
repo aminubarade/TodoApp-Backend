@@ -4,10 +4,8 @@ const sequelize = new Sequelize("todoApp", "root","root",{
 
   host: "localhost",
   port: 8889,
-  dialect: "mysql"
-
-
-
+  dialect: "mysql",
+  omitNull: true
 })
 
 

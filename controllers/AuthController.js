@@ -12,20 +12,28 @@ sequelize
       {
         where: {
           username: req.params.username,
-          password: req.params.password
+          password: req.body.password
         }
       }
     )
-    if(user.username === req.params.username || username.password === req.params.password){
+    if(user.username || username.password){
+      req.session.user = user;
+      req.session.authorized = true;
+      return true;
       console.log('Logged in Successfully');
       //redirect
     }
 })
     .catch(()=>{
       console.log("Unable to login");
+      return false;
     });
   
  };
+
+ exports.logout = (req, res, next) => {
+       req.session.destroy();
+};
 
  exports.register = (req, res, next) => {
   sequelize

@@ -4,7 +4,7 @@ const sequelize = require("./../config/db");
 const Task = sequelize.define("tasks",{
       id: {
         type: Sequelize.INTEGER,
-        autoincrement: true,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true,
       },

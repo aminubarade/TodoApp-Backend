@@ -23,7 +23,6 @@ exports.getAllUsers = (req, res, next) => {
   .sync()
   .then(()=> {
     User.create({
-      id: req.body.id,
       username: req.body.username,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
